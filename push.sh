@@ -9,7 +9,7 @@ commit_files() {
   update_readme
   git add README.md wheelhouse/*
   git status
-  git commit --message "Travis build: $TRAVIS_BUILD_NUMBER"
+  git commit --message "Travis build: $TRAVIS_JOB_NUMBER"
 }
 
 fetch_diff() {
