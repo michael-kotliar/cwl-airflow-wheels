@@ -15,7 +15,7 @@ commit_files() {
 fetch_diff() {
   git reset HEAD~
   git checkout README.md
-  commit_files()
+  commit_files
 }
 
 upload_files() {
