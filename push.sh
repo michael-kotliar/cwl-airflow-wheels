@@ -27,9 +27,6 @@ upload_files() {
     fetch_diff
     git push --quiet travis HEAD:master
   fi
-
-
-
 }
 
 commit_files
