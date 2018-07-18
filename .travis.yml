@@ -1,0 +1,24 @@
+notifications:
+  email: false
+branches:
+  only:
+  - "/^([1-9]\\d*!)?(0|[1-9]\\d*)(\\.(0|[1-9]\\d*))*((a|b|rc)(0|[1-9]\\d*))?(\\.post(0|[1-9]\\d*))?(\\.dev(0|[1-9]\\d*))?$/"
+matrix:
+  include:
+  - sudo: required
+    services:
+    - docker
+    env: DOCKER_IMAGE=quay.io/pypa/manylinux1_x86_64
+  - sudo: required
+    services:
+    - docker
+    env: DOCKER_IMAGE=quay.io/pypa/manylinux1_i686 PRE_CMD=linux32
+install:
+- docker pull $DOCKER_IMAGE
+script:
+- docker run --workdir /io --rm -v `pwd`:/io $DOCKER_IMAGE $PRE_CMD /io/build.sh
+after_success:
+- "./push.sh"
+env:
+  global:
+    secure: eF2JQX3OWHNe43Xl7bHC2aBIo/vv/ZMcZqzO0B+SRuhH1BpGYD4ZxIpp0qLDego8v3uV2r7LhMLyOytpGKtny5ixa7Xe75W1l2ho6ETjjgTpi8AOufhr15eTkkiLerVYxzgO7Eb8lhF7DsU/XAlzFEB+Z64hTD7QEkXnRvFMcGUl5i3JBvZ0oyy4X5ZuSxlMJf47vZ64UVQa3fbx5tWrf42cuDG75yD8v0nzGVxZTTuwWPv0eLdCOnow77Vk8lvsujUqOxk1FsDLje0TKXgY3BWgwKjxi9mcwJTPiwezExs4Ar8zczuJSb4258t8oi+RpyuF0VjB5XAh9LR2M24XzHY1w9qfeS3Bi2W92ymLwCrB7Z0pMbjzbcrJITDg1mOSdYSWzkhtzSBbzHEPvx4FZfS3VJDpjb43c6sH0imoY8V88nHXI6vrdXh7ITqAG4SSIouHAZlComIfZvoHSkg+vVnmCc1EViXLKmgSMlbcd+rnPj9HRBVvjox823XmT5HC2HEJDejf5gvnW/K9IAH0I3jz7rOhepBmD0LJsp+v7zGHl1FNqzX7o9bUO0rge8QIrpB09Mvicp/268lGtlxj4UyoLcrFdXA7W1G3Tox6rFDrIB4ul4peCjuZjEuIaRuQJR1aEXPYQXc/ZWYQxCpAmXpW0J89c14Svgr0+PX+Vfc=
