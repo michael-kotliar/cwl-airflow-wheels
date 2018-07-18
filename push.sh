@@ -13,7 +13,7 @@ commit_files() {
 }
 
 upload_files() {
-  git remote add travis https://${GH_TOKEN}@github.com/michael-kotliar/cwl-airflow-wheels.git > /dev/null 2>&1
+  git remote add travis https://michael-kotliar:${GH_TOKEN}@github.com/michael-kotliar/cwl-airflow-wheels.git > /dev/null 2>&1
   git push --quiet travis HEAD:master
 }
 
