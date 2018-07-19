@@ -30,7 +30,7 @@ upload_files() {
       sleep 1
       fetch_diff
       (( count++ ))
-      if [ $count == 15 ]
+      if [ $count == 60 ]
       then
         break
       fi
