@@ -8,7 +8,6 @@ commit_files() {
   git pull origin master
   update_readme
   git add README.md wheelhouse/*
-  git status
   git commit --message "Travis build: $TRAVIS_JOB_NUMBER"
 }
 
@@ -32,10 +31,10 @@ upload_files() {
       (( count++ ))
       if [ $count == 60 ]
       then
+        echo "Give up pushing"
         break
       fi
   done
-  echo "Pushed changes"
 }
 
 commit_files
