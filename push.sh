@@ -18,15 +18,24 @@ fetch_diff() {
   commit_files
 }
 
+git_push() {
+    git push --quiet travis HEAD:master
+}
+
 upload_files() {
   git remote add travis https://michael-kotliar:${GH_TOKEN}@github.com/michael-kotliar/cwl-airflow-wheels.git > /dev/null 2>&1
-  if git push --quiet travis HEAD:master
-  then
-    echo "git push succeeded"
-  else
-    fetch_diff
-    git push --quiet travis HEAD:master
-  fi
+  while ! git_push
+    do
+      echo "Failed to push changes"
+      sleep 1
+      fetch_diff
+      (( count++ ))
+      if [ $count == 15 ]
+      then
+        break
+      fi
+  done
+  echo "Pushed changes"
 }
 
 commit_files
