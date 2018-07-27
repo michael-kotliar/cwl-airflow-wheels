@@ -1,2 +1,4 @@
 psutil>=4.2.0, <5.0.0
 setproctitle>=1.1.8, <2
+subprocess32
+scandir
