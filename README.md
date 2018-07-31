@@ -24,7 +24,11 @@
 
 [ruamel.ordereddict-0.4.13-cp27-cp27m-manylinux1_i686.whl](wheelhouse/ruamel.ordereddict-0.4.13-cp27-cp27m-manylinux1_i686.whl)
 
+[ruamel.ordereddict-0.4.13-cp27-cp27m-manylinux1_x86_64.whl](wheelhouse/ruamel.ordereddict-0.4.13-cp27-cp27m-manylinux1_x86_64.whl)
+
 [ruamel.ordereddict-0.4.13-cp27-cp27mu-manylinux1_i686.whl](wheelhouse/ruamel.ordereddict-0.4.13-cp27-cp27mu-manylinux1_i686.whl)
+
+[ruamel.ordereddict-0.4.13-cp27-cp27mu-manylinux1_x86_64.whl](wheelhouse/ruamel.ordereddict-0.4.13-cp27-cp27mu-manylinux1_x86_64.whl)
 
 [scandir-1.7-cp27-cp27m-manylinux1_i686.whl](wheelhouse/scandir-1.7-cp27-cp27m-manylinux1_i686.whl)
 
