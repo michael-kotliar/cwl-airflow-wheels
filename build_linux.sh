@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
 for PYBIN in /opt/python/*/bin; do
-  rm -rf packages
   mkdir packages
   cd packages
   "${PYBIN}/pip" download --no-cache-dir -r ../requirements.txt
@@ -9,6 +8,7 @@ for PYBIN in /opt/python/*/bin; do
   for PACKAGE in packages/*; do
     "${PYBIN}/pip" wheel "./${PACKAGE}/" -w tmp
   done
+  rm -rf packages
 done
 
 # Bundle external shared libraries into the wheels
@@ -17,4 +17,3 @@ for whl in tmp/*.whl; do
 done
 
 rm -rf tmp
-rm -rf packages
