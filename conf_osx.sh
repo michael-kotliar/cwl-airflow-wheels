@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 brew outdated pyenv || brew upgrade pyenv
+pyenv install --list
 
 for P_VERSION in ${PYTHON_VERSIONS//:/ }; do
     pyenv install "$P_VERSION"
