@@ -10,10 +10,10 @@ services:
 
 matrix:
   include:
-#  - sudo: required
-#    env: DOCKER_IMAGE=quay.io/pypa/manylinux1_x86_64
-#  - sudo: required
-#    env: DOCKER_IMAGE=quay.io/pypa/manylinux1_i686 PRE_CMD=linux32
+  - sudo: required
+    env: DOCKER_IMAGE=quay.io/pypa/manylinux1_x86_64
+  - sudo: required
+    env: DOCKER_IMAGE=quay.io/pypa/manylinux1_i686 PRE_CMD=linux32
   - os: osx
     env: PYTHON_VERSIONS="2.7.15:3.4.8:3.5.5:3.6.5:3.7.0"
 
