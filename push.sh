@@ -8,7 +8,7 @@ commit_files() {
   git pull origin master
   update_readme
   git add README.md wheelhouse/*
-  git commit --message "Travis build: $TRAVIS_JOB_NUMBER"
+  git commit --message "Travis build: $TRAVIS_OS_NAME $TRAVIS_JOB_NUMBER"
 }
 
 fetch_diff() {

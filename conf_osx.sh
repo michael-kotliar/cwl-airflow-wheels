@@ -1,9 +1,5 @@
 #!/usr/bin/env bash
 
-brew install pyenv
-echo -e 'if command -v pyenv 1>/dev/null 2>&1; then\n  eval "$(pyenv init -)"\nfi' >> ~/.bash_profile
-exec "$SHELL"
-
 for P_VERSION in ${PYTHON_VERSIONS//:/ }; do
     pyenv install "$P_VERSION"
     pyenv rehash
