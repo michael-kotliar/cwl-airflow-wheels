@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-
+brew update
 brew outdated pyenv || brew upgrade pyenv
 pyenv install --list
 
