@@ -7,7 +7,7 @@ update_readme() {
 commit_files() {
   git pull origin master
   update_readme
-  git add README.md wheelhouse/*
+  git add README.md wheelhouse/*.whl
   git commit --message "Travis build: $TRAVIS_OS_NAME $TRAVIS_JOB_NUMBER"
 }
 
